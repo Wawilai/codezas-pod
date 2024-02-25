@@ -1,7 +1,7 @@
 package dto
 
 type CategoryRequest struct {
-	Name string `json:"name" binding:"required"`
+	Name string `form:"name" binding:"required"`
 }
 
 type CategoryResponse struct {

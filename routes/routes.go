@@ -8,6 +8,12 @@ import (
 
 func ServRoutes(route *gin.Engine) {
 
+	accountsController := controllers.Account{}
+	acpg := route.Group("/mt4accounts")
+	acpg.GET("", accountsController.FindAll)
+	acpg.GET("/:id", accountsController.FindOne)
+	acpg.POST("", accountsController.Create)
+
 	productController := controllers.Product{}
 	rpg := route.Group("/products")
 	rpg.GET("", productController.FindAll)

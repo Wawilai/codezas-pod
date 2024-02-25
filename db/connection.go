@@ -13,7 +13,7 @@ import (
 var Connection *gorm.DB
 
 func ConnectDB() {
-	dsn := os.Getenv("DATABASE_DSN")
+	dsn := os.Getenv("DATABASE_URL")
 	db, err := gorm.Open(
 		postgres.Open(dsn),
 		&gorm.Config{Logger: logger.Default.LogMode(logger.Info)},
@@ -27,6 +27,7 @@ func ConnectDB() {
 
 func Migrate() {
 	Connection.AutoMigrate(
+		&entity.Account{},
 		&entity.Category{},
 		&entity.Product{},
 		&entity.Order{},
