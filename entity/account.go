@@ -4,6 +4,6 @@ import "gorm.io/gorm"
 
 type Account struct {
 	gorm.Model
-	AccountId uint `gorm:"not null"`
-	Status    uint `gorm:"not null"`
+	Account_Id uint `gorm:"not null"`
+	Status     uint `gorm:"not null"`
 }

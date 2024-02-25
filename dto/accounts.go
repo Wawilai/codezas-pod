@@ -1,11 +1,11 @@
 package dto
 
 type AccountRequest struct {
-	AccountId uint `form:"account_id" binding:"required"`
+	AccountId uint `form:"accountid" binding:"required"`
 	Status    uint `form:"status" binding:"required"`
 }
 
 type AccountResponse struct {
 	ID        uint `json:"id"`
-	AccountId uint `json:"account_id"`
+	AccountId uint `json:"accountid"`
 }

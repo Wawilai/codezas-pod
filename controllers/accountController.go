@@ -21,7 +21,7 @@ func (c Account) FindAll(ctx *gin.Context) {
 	for _, acc := range accounts {
 		result = append(result, dto.AccountResponse{
 			ID:        acc.ID,
-			AccountId: acc.AccountId,
+			AccountId: acc.Account_Id,
 		})
 	}
 
@@ -37,7 +37,7 @@ func (c Account) FindOne(ctx *gin.Context) {
 	}
 	ctx.JSON(http.StatusOK, dto.AccountResponse{
 		ID:        accounts.ID,
-		AccountId: accounts.AccountId,
+		AccountId: accounts.Account_Id,
 	})
 }
 
@@ -49,8 +49,8 @@ func (c Account) Create(ctx *gin.Context) {
 	}
 
 	accounts := entity.Account{
-		AccountId: form.AccountId,
-		Status:    form.Status,
+		Account_Id: form.AccountId,
+		Status:     form.Status,
 	}
 
 	if err := db.Connection.Create(&accounts).Error; err != nil {
@@ -60,6 +60,6 @@ func (c Account) Create(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusCreated, dto.AccountResponse{
 		ID:        accounts.ID,
-		AccountId: accounts.AccountId,
+		AccountId: accounts.Account_Id,
 	})
 }
