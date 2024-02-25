@@ -12,11 +12,11 @@ import (
 )
 
 func main() {
-	if os.Getenv("APP_ENV") != "production" {
+	if os.Getenv("APP_ENV") == "production" {
+		gin.SetMode(gin.ReleaseMode)
+	} else {
 		if err := godotenv.Load(); err != nil {
 			log.Fatal("Error loading .env file")
-		} else {
-			gin.SetMode(gin.ReleaseMode)
 		}
 	}
 
